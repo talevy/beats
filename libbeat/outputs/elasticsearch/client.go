@@ -83,7 +83,7 @@ func (client *Client) PublishEvents(
 	}
 
 	// new request to store all events into
-	request, err := client.startBulkRequest("", "", nil)
+	request, err := client.startBulkRequest("", "", map[string]string{"pipeline_id": "demo"})
 	if err != nil {
 		logp.Err("Failed to perform any bulk index operations: %s", err)
 		return events, err
